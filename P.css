@@ -1,0 +1,20 @@
+:root {
+  --bg-deep: #000;
+  --gold: #d4af37;
+  --paper: #f9f3ea;
+  --max-width: 1200px;
+  --radius: 16px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg-deep);
+  overflow-x: hidden;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+body {
+  padding-top: 80px;
+}
+

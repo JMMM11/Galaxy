@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Constelación P</title>
+  <link rel="icon" type="image/png" href="Galaxy-PNG.png" />
+      <!-- CSS -->
+    <link rel="stylesheet" href="P.css" />
+    <link rel="stylesheet" href="Index.css" />
+    
+</head>
+<body>
+  <!-- Menú de navegación -->
+  <nav class="tabs-nav" id="tabsNav">
+    <ul class="tabs-list">
+      <li class="tab-item">
+        <a href="index.html" class="tab-link">Gravity</a>
+      </li>
+      <li class="tab-item">
+        <a href="P.html" class="tab-link active">Constelación</a>
+      </li>
+      <li class="tab-item">
+        <a href="Galaxy.html" class="tab-link">Galaxy</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Contenido de la constelación -->
+  <canvas id="space" aria-label="Constelación en forma de P"></canvas>
+
+  <!-- Script para el menú -->
+  <script>
+    const tabsNav = document.getElementById('tabsNav');
+    let lastScrollPosition = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollPosition = window.scrollY;
+
+      if (currentScrollPosition > lastScrollPosition) {
+        tabsNav.classList.add('hidden');
+      } else {
+        tabsNav.classList.remove('hidden');
+      }
+
+      lastScrollPosition = currentScrollPosition;
+    });
+  </script>
+
+  <!-- Script para la constelación en forma de P -->
+  <script>
+    const canvas = document.getElementById('space');
+    const ctx = canvas.getContext('2d');
+    const DPR = window.devicePixelRatio || 1;
+
+    const Pstars = [
+      { x: 0,   y: 0,   size: 2.8 },
+      { x: 0,   y: 30,  size: 2.2 },
+      { x: 0,   y: 60,  size: 3.0 },
+      { x: 0,   y: 90,  size: 2.4 },
+      { x: 0,   y: 120, size: 2.6 },
+      { x: 0,   y: 150, size: 2.0 },
+      { x: 20,  y: 0,   size: 2.0 },
+      { x: 40,  y: 10,  size: 2.4 },
+      { x: 55,  y: 30,  size: 2.8 },
+      { x: 50,  y: 60,  size: 2.2 },
+      { x: 30,  y: 90,  size: 2.6 },
+      { x: 15,  y: 100, size: 2.0 }
+    ];
+
+    let backgroundStars = [];
+    const BG_STAR_COUNT = 400;
+
+    function resize() {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      canvas.width = Math.floor(w * DPR);
+      canvas.height = Math.floor(h * DPR);
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      initBackgroundStars();
+    }
+
+    function initBackgroundStars() {
+      backgroundStars = [];
+      const w = canvas.width / DPR;
+      const h = canvas.height / DPR;
+      for (let i = 0; i < BG_STAR_COUNT; i++) {
+        backgroundStars.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: 0.4 + Math.random() * 1.2,
+          tw: Math.random() * Math.PI * 2,
+          speed: 0.01 + Math.random() * 0.02
+        });
+      }
+    }
+
+    function drawStar(x, y, size, flickerPhase, alpha = 1) {
+      const radius = Math.max(0.2, size + Math.sin(flickerPhase) * size * 0.3);
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.beginPath();
+      ctx.shadowBlur = Math.max(4, size * 4);
+      ctx.shadowColor = `rgba(180, 200, 255, ${0.8 * alpha})`;
+      ctx.fillStyle = `rgba(255, 255, 255, ${1 * alpha})`;
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    let lastTime = 0;
+    function animate(currentTime) {
+      requestAnimationFrame(animate);
+      const dt = currentTime - lastTime;
+      lastTime = currentTime;
+      const w = canvas.width / DPR;
+      const h = canvas.height / DPR;
+
+      ctx.clearRect(0, 0, w, h);
+
+      backgroundStars.forEach(star => {
+        star.tw += star.speed * dt * 0.06;
+        const alpha = 0.2 + 0.6 * (0.5 + 0.5 * Math.sin(star.tw));
+        drawStar(star.x, star.y, star.r, star.tw, alpha);
+      });
+
+      const offsetX = w / 2 - 80;
+      const offsetY = h / 2 - 80;
+
+      ctx.strokeStyle = "rgba(180, 200, 255, 0.2)";
+      ctx.lineWidth = 1.0;
+      ctx.beginPath();
+      for (let i = 0; i < Pstars.length - 1; i++) {
+        const starA = Pstars[i];
+        const starB = Pstars[i + 1];
+        ctx.moveTo(starA.x + offsetX, starA.y + offsetY);
+        ctx.lineTo(starB.x + offsetX, starB.y + offsetY);
+      }
+      ctx.stroke();
+
+      Pstars.forEach((star, index) => {
+        const flicker = (currentTime / 1000) + index * 0.5;
+        drawStar(star.x + offsetX, star.y + offsetY, star.size, flicker, 1);
+      });
+
+      const grad = ctx.createRadialGradient(w/2, h/2, 50, w/2, h/2, Math.min(w, h));
+      grad.addColorStop(0, 'rgba(10, 20, 40, 0.1)');
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    requestAnimationFrame(animate);
+  </script>
+</body>
+</html>
