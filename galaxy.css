@@ -5,10 +5,9 @@
 html, body {
   height: 100%;
   background: #000010;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Georgia", "Times New Roman", serif;
 }
+
 
 /* Canvas styles */
 .webgl {
