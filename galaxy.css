@@ -1,0 +1,41 @@
+/* Reset minimal */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Full-screen black background to avoid white flash */
+html, body {
+  height: 100%;
+  background: #000010;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Canvas styles */
+.webgl {
+  position: fixed;
+  inset: 0;             /* top:0; right:0; bottom:0; left:0; */
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  outline: none;
+  touch-action: none;   /* avoid accidental browser gestures on touch devices */
+  cursor: grab;
+}
+
+/* Cursor active state when dragging (js sets grabbing when needed) */
+.webgl:active { cursor: grabbing; }
+
+/* Optional overlay helper (uncomment in HTML if you want a small UI) */
+/*
+.info {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #dfe7ff;
+  font-size: 13px;
+  background: rgba(10,10,20,0.25);
+  padding: 8px 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+}
+*/

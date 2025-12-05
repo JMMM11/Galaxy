@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="galaxy.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Galaxy-PNG.png" />
+
+    <!-- Preload three.js -->
+    <link rel="preload" href="https://cdn.skypack.dev/three@0.132.2" as="script">
+
+    <title>Galaxy Animation</title>
+</head>
+
+<body>
+
+    <!-- Tu menú se mantiene igual -->
+    <main id="app">
+        <nav class="tabs-nav" id="tabsNav">
+            <ul class="tabs-list">
+                <li class="tab-item"><a href="index.html" class="tab-link">Gravity</a></li>
+                <li class="tab-item"><a href="Pantalla.html" class="tab-link">Constelación</a></li>
+                <li class="tab-item"><a href="Galaxy.html" class="tab-link">Galaxy</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Canvas de la galaxia -->
+    <canvas class="webgl"></canvas>
+
+    <!-- Script de la galaxia optimizada -->
+    <script type="module" src="galaxy.js"></script>
+</body>
+
+</html>
