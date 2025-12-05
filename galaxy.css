@@ -12,29 +12,14 @@ html, body {
 /* Canvas styles */
 .webgl {
   position: fixed;
-  inset: 0;             /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;             
   width: 100vw;
   height: 100vh;
   display: block;
   outline: none;
-  touch-action: none;   /* avoid accidental browser gestures on touch devices */
+  touch-action: none;   
   cursor: grab;
 }
 
-/* Cursor active state when dragging (js sets grabbing when needed) */
-.webgl:active { cursor: grabbing; }
 
-/* Optional overlay helper (uncomment in HTML if you want a small UI) */
-/*
-.info {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  color: #dfe7ff;
-  font-size: 13px;
-  background: rgba(10,10,20,0.25);
-  padding: 8px 10px;
-  border-radius: 8px;
-  backdrop-filter: blur(6px);
-}
-*/
+.webgl:active { cursor: grabbing; }
