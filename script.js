@@ -213,3 +213,33 @@ window.addEventListener("scroll", () => {
     starfield.style.transform = `translateY(${scrolled * 0.3}px)`
   }
 })
+
+// Seleccionar el menú de pestañas
+const tabsNav = document.getElementById('tabsNav');
+let lastScrollPosition = 0;
+
+// Función para manejar el scroll (ocultar/mostrar menú)
+window.addEventListener('scroll', () => {
+  const currentScrollPosition = window.scrollY;
+
+  if (currentScrollPosition > lastScrollPosition) {
+    tabsNav.classList.add('hidden');
+  } else {
+    tabsNav.classList.remove('hidden');
+  }
+
+  lastScrollPosition = currentScrollPosition;
+});
+
+// Manejar el clic en las pestañas que enlazan a secciones
+document.querySelectorAll('.tab-link[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+
+    // Actualizar la pestaña activa
+    document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
