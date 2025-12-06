@@ -15,10 +15,10 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const imageFiles = [
   "lamejorfoto.jpg",
   "seductora.jpg",
-  "collage.png",
+  "collage.jpg",
   "rulitos.jpg",
-  "Graduación1.png",
-  "jejeje.png",
+  "Graduación1.jpeg",
+  "jejeje.jpeg",
   "rulitos2.jpg",
 ];
 
