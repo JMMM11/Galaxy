@@ -18,7 +18,7 @@ const imageFiles = [
   "collage.jpg",
   "rulitos.jpg",
   "Graduación1.jpg",
-  "❤️.jpg",
+  "jejeje.jpg",
   "rulitos2.jpg",
 ];
 
