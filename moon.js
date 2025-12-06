@@ -32,7 +32,7 @@ scene.add(moonGroup);
 
 // Parámetros de la luna
 const radius = 2.2;
-const particleCount = 8000;
+const particleCount = 8000; // Ajusta según el rendimiento deseado
 
 // Crear partículas (sprites) para la luna
 const particles = [];
@@ -46,7 +46,7 @@ for (let i = 0; i < particleCount; i++) {
     });
     const sprite = new THREE.Sprite(material);
 
-    // Coordenadas esféricas
+    // Coordenadas esféricas para distribuir los sprites en la esfera
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.random() * Math.PI;
     const x = radius * Math.sin(phi) * Math.cos(theta);
@@ -54,8 +54,8 @@ for (let i = 0; i < particleCount; i++) {
     const z = radius * Math.cos(phi);
 
     sprite.position.set(x, y, z);
-    sprite.scale.set(0.1, 0.1, 0.1);
-    sprite.lookAt(0, 0, 0);
+    sprite.scale.set(0.1, 0.1, 0.1); // Tamaño de los sprites
+    sprite.lookAt(0, 0, 0); // Orientar el sprite hacia el centro de la esfera
 
     moonGroup.add(sprite);
     particles.push(sprite);
@@ -66,6 +66,7 @@ const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
 scene.add(ambientLight);
 
 // --- ESTRELLAS COMO SPRITES (CUADRADITOS) ---
+// Crear una textura blanca pequeña para las estrellas
 const starCanvas = document.createElement('canvas');
 starCanvas.width = 4;
 starCanvas.height = 4;
@@ -74,8 +75,8 @@ ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, 4, 4);
 const starTexture = new THREE.CanvasTexture(starCanvas);
 
+// Crear estrellas
 const starCount = 3000;
-const starSprites = [];
 for (let i = 0; i < starCount; i++) {
     const starMaterial = new THREE.SpriteMaterial({
         map: starTexture,
@@ -95,10 +96,9 @@ for (let i = 0; i < starCount; i++) {
     const z = starRadius * Math.cos(phi);
 
     starSprite.position.set(x, y, z);
-    starSprite.scale.set(0.05, 0.05, 0.05);
+    starSprite.scale.set(0.05, 0.05, 0.05); // Tamaño de las estrellas
 
     scene.add(starSprite);
-    starSprites.push(starSprite);
 }
 
 // Controles de órbita
@@ -119,11 +119,6 @@ function animate() {
     particles.forEach((particle, i) => {
         const scale = 0.1 + 0.02 * Math.sin(time + i * 0.001);
         particle.scale.set(scale, scale, scale);
-    });
-
-    // Animación suave para las estrellas (parpadeo)
-    starSprites.forEach((star, i) => {
-        star.material.opacity = 0.5 + 0.5 * Math.sin(time * 0.5 + i * 0.1);
     });
 
     controls.update();
