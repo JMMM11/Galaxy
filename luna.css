@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000010;
+}
+
+.webgl {
+    display: block;
+    width: 100%;
+    height: 100vh;
+}
