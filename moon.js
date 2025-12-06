@@ -13,13 +13,13 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 // Lista de imágenes para los sprites de la luna
 const imageFiles = [
-  "you/lamejorfoto.jpg",
-  "you/seductora.jpg",
-  "you/collage.png",
-  "you/rulitos.jpg",
-  "you/Graduación1.png",
-  "you/jejeje.png",
-  "you/rulitos2.jpg",
+  "lamejorfoto.jpg",
+  "seductora.jpg",
+  "collage.png",
+  "rulitos.jpg",
+  "Graduación1.png",
+  "jejeje.png",
+  "rulitos2.jpg",
 ];
 
 // Cargar texturas para la luna
