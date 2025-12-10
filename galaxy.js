@@ -152,19 +152,12 @@ function animate() {
   const elapsed = clock.getElapsedTime();
   const delta = clock.getDelta();
 
-  // subtle rotation of the whole particles cloud
+
   if (points) {
     points.rotation.y = elapsed * params.rotationSpeed;
-    // a tiny vertical oscillation for depth
+
     points.rotation.x = Math.sin(elapsed * 0.07) * 0.02;
   }
-
-  // make camera slowly orbit around center while preserving control damping
-  // (we still let OrbitControls handle user interaction)
-  // Optionally, uncomment to animate camera automatically:
-  // camera.position.x = Math.cos(elapsed * 0.03) * 6;
-  // camera.position.z = Math.sin(elapsed * 0.03) * 6;
-  // camera.lookAt(0, 0, 0);
 
   controls.update();
   renderer.render(scene, camera);

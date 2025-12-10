@@ -1,4 +1,3 @@
-/* Frases para las estrellas de la constelación en forma de P */
 const constellationPhrases = [
   "Tu inteligencia ilumina cada conversación, como un faro en la oscuridad.",
   "La forma en que tu mente conecta ideas me deja sin aliento.",
@@ -100,14 +99,14 @@ function closeModal() {
   }
 }
 
-/* Back to top */
+
 const backToTopBtn = document.getElementById("backToTop")
 if (backToTopBtn) {
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   })
 }
-/* Starfield canvas background - animación lenta y suave */
+
 ;(function starfield() {
   const canvas = document.getElementById("starfield")
   if (!canvas) return
@@ -129,7 +128,7 @@ if (backToTopBtn) {
     r: Math.random() * 1.5 + 0.5,
     tw: Math.random() * 1.2 + 0.5,
     t: Math.random() * Math.PI * 2,
-    speed: Math.random() * 0.003 + 0.001, // velocidad muy lenta
+    speed: Math.random() * 0.003 + 0.001, 
   }))
 
   // Algunas estrellas doradas especiales
@@ -149,7 +148,7 @@ if (backToTopBtn) {
     // Estrellas blancas normales
     for (const s of stars) {
       s.t += s.speed
-      s.y -= 0.05 // movimiento muy lento hacia arriba
+      s.y -= 0.05 
 
       // Reset cuando sale de la pantalla
       if (s.y < -10) {
@@ -205,7 +204,6 @@ if (backToTopBtn) {
   draw()
 })()
 
-// Efecto de parallax suave al hacer scroll
 window.addEventListener("scroll", () => {
   const scrolled = window.pageYOffset
   const starfield = document.getElementById("starfield")
@@ -214,11 +212,11 @@ window.addEventListener("scroll", () => {
   }
 })
 
-// Seleccionar el menú de pestañas
+
 const tabsNav = document.getElementById('tabsNav');
 let lastScrollPosition = 0;
 
-// Función para manejar el scroll (ocultar/mostrar menú)
+
 window.addEventListener('scroll', () => {
   const currentScrollPosition = window.scrollY;
 
@@ -231,14 +229,12 @@ window.addEventListener('scroll', () => {
   lastScrollPosition = currentScrollPosition;
 });
 
-// Manejar el clic en las pestañas que enlazan a secciones
 document.querySelectorAll('.tab-link[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const targetId = link.getAttribute('href');
     document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
 
-    // Actualizar la pestaña activa
     document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
     link.classList.add('active');
   });

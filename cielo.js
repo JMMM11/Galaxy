@@ -1,39 +1,30 @@
-// file name: cielo.js (versión actualizada)
 document.addEventListener("DOMContentLoaded", () => {
-    // ---- Configuración rápida ----
     const planets = document.querySelectorAll(".planet");
     const tooltip = document.getElementById("tooltip");
     const starsContainer = createStars(140);
     document.body.appendChild(starsContainer);
     
-    // Nuevos elementos para contenedor inferior
     const piropoContainer = document.getElementById("piropoContainer");
     const planetaNombre = document.getElementById("planetaNombre");
     const piropoTexto = document.getElementById("piropoTexto");
     const piropoAutor = document.getElementById("piropoAutor");
 
-    // Añadir eventos a cada planeta
     planets.forEach(planet => {
-        // cuando se clicka, mostrar piropo en posición relativa al planeta
         planet.addEventListener("click", (e) => {
             const texto = planet.dataset.piropo || planet.dataset.nombre || "…";
             const nombre = planet.dataset.nombre || "Planeta";
             const autor = planet.dataset.autor || "Autor desconocido";
             
-            // Mostrar tooltip flotante
+    
             showTooltip(texto, planet);
-            
-            // Mostrar en contenedor inferior
             showPiropoContainer(nombre, texto, autor);
             
-            // pequeño pulso al click
             planet.animate([
                 { transform: 'translate(-50%,-50%) scale(1.1)' }, 
                 { transform: 'translate(-50%,-50%) scale(1)' }
             ], { duration: 300, easing: 'ease-out' });
         });
 
-        // hover: mostrar piropo suave en tooltip
         planet.addEventListener("mouseenter", () => {
             const texto = planet.dataset.piropo || planet.dataset.nombre || "…";
             showTooltip(texto, planet, { autoHide: true, delay: 2200 });
@@ -44,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // cerrar tooltip al clickar en cualquier lugar fuera de un planeta
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".planet")) {
             hideTooltip();
@@ -52,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // función para posicionar el tooltip cerca del planeta
     function showTooltip(text, element, options = {}) {
         tooltip.hidden = false;
         tooltip.textContent = text;
@@ -99,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
     }
 
-    // Nueva función: mostrar piropo en contenedor inferior
+
     function showPiropoContainer(nombre, texto, autor) {
         planetaNombre.textContent = nombre;
         piropoTexto.textContent = `"${texto}"`;
@@ -108,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         piropoContainer.hidden = false;
         piropoContainer.style.display = 'block';
         
-        // Animación de entrada
+
         piropoContainer.animate([
             { opacity: 0, transform: 'translateX(-50%) translateY(20px)' },
             { opacity: 1, transform: 'translateX(-50%) translateY(0)' }
@@ -128,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
     }
 
-    // Genera un contenedor con estrellas ligeras
+
     function createStars(count = 100) {
         const container = document.createElement("div");
         container.className = "stars";
@@ -147,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return container;
     }
 
-    // Controla la velocidad de las órbitas
+
     const orbits = document.querySelectorAll(".orbit");
     orbits.forEach(o => {
         const speed = parseFloat(o.dataset.speed) || 20;
@@ -155,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
         o.style.animationDuration = `${seconds}s`;
     });
 
-    // Accesibilidad: permitir foco y mostrar tooltip con teclado
+ 
     planets.forEach(p => {
         p.setAttribute('tabindex', '0');
         p.addEventListener('keydown', (ev) => {
@@ -169,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Efecto para que la foto central responda al movimiento del mouse
+
     const centro = document.getElementById('centro');
     document.addEventListener('mousemove', (e) => {
         const rect = centro.getBoundingClientRect();

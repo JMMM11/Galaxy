@@ -1,7 +1,5 @@
-/* Reset minimal */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Full-screen black background to avoid white flash */
 html, body {
   height: 100%;
   background: #000010;
@@ -9,7 +7,6 @@ html, body {
 }
 
 
-/* Canvas styles */
 .webgl {
   position: fixed;
   inset: 0;             

@@ -1,7 +1,7 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js";
 
-// Configuración inicial
+
 const canvas = document.querySelector('.webgl');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -11,7 +11,7 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-// Lista de imágenes para los sprites de la luna
+
 const imageFiles = [
   "lamejorfoto.jpg",
   "seductora.jpg",
@@ -32,7 +32,7 @@ scene.add(moonGroup);
 
 // Parámetros de la luna
 const radius = 2.2;
-const particleCount = 8000; // Ajusta según el rendimiento deseado
+const particleCount = 8000; 
 
 // Crear partículas (sprites) para la luna
 const particles = [];
@@ -65,7 +65,7 @@ for (let i = 0; i < particleCount; i++) {
 const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
 scene.add(ambientLight);
 
-// --- ESTRELLAS COMO SPRITES (CUADRADITOS) ---
+// --- ESTRELLAS COMO CUADRADITOS ---
 // Crear una textura blanca pequeña para las estrellas
 const starCanvas = document.createElement('canvas');
 starCanvas.width = 4;
@@ -125,7 +125,6 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-// Responsive
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();

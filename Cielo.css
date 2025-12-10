@@ -283,7 +283,7 @@ body{
     }
 }
 
-/* Estrellas (ligeras) */
+
 .stars{
     position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden;
 }
@@ -302,7 +302,7 @@ body{
     100%{opacity:0}
 }
 
-/* Responsividad: reduce el centro y órbitas en pantallas pequeñas */
+
 @media (max-width:640px){
     .centro{ width:120px;height:120px }
     .sun-glow{ width:260px;height:260px }
