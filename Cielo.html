@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mi Sistema Solar — Tú eres mi cielo</title>
+
+    <link rel="stylesheet" href="Cielo.css" />
+    <link rel="stylesheet" href="Index.css" />
+    <link rel="icon" type="image/png" href="Galaxy-PNG.png" />
+</head>
+<body>
+    <nav class="tabs-nav" id="tabsNav">
+      <ul class="tabs-list">
+        <li class="tab-item"><a href="index.html" class="tab-link">Gravity</a></li>
+        <li class="tab-item"><a href="P.html" class="tab-link">Constelación</a></li>
+        <li class="tab-item"><a href="Galaxy.html" class="tab-link active">Galaxy</a></li>
+        <li class="tab-item"><a href="Luna.html" class="tab-link">Moon</a></li>
+      </ul>
+    </nav>
+
+    <main class="cielo-container" aria-label="Sistema solar con foto en el centro">
+        <h1 class="mensaje">Tú eres mi cielo</h1>
+
+        <section class="sistema-solar" role="application" aria-label="Sistema Solar">
+            <div class="centro" id="centro">
+                <img src="rulitos2.jpg" alt="Foto de ella" id="foto-ella" class="sun-photo" />
+                <div class="sun-glow" aria-hidden="true"></div>
+            </div>
+
+            <div class="orbit orbit-mercurio" data-speed="4">
+                <div class="planet mercurio" data-nombre="Mercurio" 
+                     data-autor="Mario Benedetti"
+                     data-piropo="Tus ojos son dos soles que me guían en la oscuridad."></div>
+            </div>
+
+            <div class="orbit orbit-venus" data-speed="7">
+                <div class="planet venus" data-nombre="Venus" 
+                     data-autor="André Aciman - Call Me by Your Name"
+                     data-piropo="Me bastaría tu nombre pronunciado por otro para reconocerte entre mil."></div>
+            </div>
+
+            <div class="orbit orbit-tierra" data-speed="12">
+                <div class="planet tierra" data-nombre="Tierra" 
+                     data-autor="Federico García Lorca"
+                     data-piropo="Verde que te quiero verde. Verde viento, verdes ramas."></div>
+            </div>
+
+            <div class="orbit orbit-marte" data-speed="18">
+                <div class="planet marte" data-nombre="Marte" 
+                     data-autor="Gabriel García Márquez"
+                     data-piropo="Era inevitable: el olor de las almendras amargas le recordaba siempre el destino de los amores contrariados."></div>
+            </div>
+
+            <div class="orbit orbit-jupiter" data-speed="25">
+                <div class="planet jupiter" data-nombre="Júpiter" 
+                     data-autor="Octavio Paz"
+                     data-piropo="Amor es un eterno ir y venir entre dos orillas."></div>
+            </div>
+
+            <div class="orbit orbit-saturno" data-speed="35">
+                <div class="planet saturno" data-nombre="Saturno" 
+                     data-autor="Mario Benedetti"
+                     data-piropo="Te quiero porque tus manos trabajan por la justicia."></div>
+            </div>
+
+            <div class="orbit orbit-urano" data-speed="45">
+                <div class="planet urano" data-nombre="Urano" 
+                     data-autor="Isabel Allende"
+                     data-piropo="Llevo tu nombre y tu recuerdo tatuado en el alma."></div>
+            </div>
+
+            <div class="orbit orbit-neptuno" data-speed="55">
+                <div class="planet neptuno" data-nombre="Neptuno" 
+                     data-autor="Charles Bukowski"
+                     data-piropo="Eres tan increíble que casi no te creo."></div>
+            </div>
+        </section>
+
+
+        <div id="tooltip" role="status" aria-live="polite" class="tooltip" hidden></div>
+        
+        <div class="piropo-container" id="piropoContainer" aria-live="polite" hidden>
+            <div class="piropo-content">
+                <h2 class="planeta-nombre" id="planetaNombre"></h2>
+                <p class="piropo-texto" id="piropoTexto"></p>
+                <p class="piropo-autor" id="piropoAutor"></p>
+            </div>
+        </div>
+    </main>
+
+    <script src="cielo.js"></script>
+</body>
+</html>
