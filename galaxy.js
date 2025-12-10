@@ -115,7 +115,6 @@ function generateGalaxy() {
   geometry.setAttribute("aRandom", new THREE.BufferAttribute(randomness, 3));
   geometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
 
-  // material
   material = new THREE.PointsMaterial({
     size: params.size,
     sizeAttenuation: true,
@@ -130,10 +129,8 @@ function generateGalaxy() {
   scene.add(points);
 }
 
-// initialize
 generateGalaxy();
 
-/* ---------- Resize handling ---------- */
 window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
   sizes.height = window.innerHeight;
@@ -165,10 +162,10 @@ function animate() {
 }
 animate();
 
-/* ---------- Optional: keyboard shortcut to regenerate galaxy ---------- */
+
 window.addEventListener("keydown", (ev) => {
   if (ev.key === "r" || ev.key === "R") {
-    // slightly mutate some params and regenerate for variety
+
     params.spin = 0.5 + Math.random() * 2.5;
     params.randomness = 0.4 + Math.random() * 1.6;
     generateGalaxy();
