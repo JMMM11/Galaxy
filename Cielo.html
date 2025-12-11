@@ -21,7 +21,7 @@
     </nav>
 
     <main class="cielo-container" aria-label="Sistema solar con foto en el centro">
-        <h1 class="mensaje">Tú eres mi cielo</h1>
+        <h1 class="mensaje">Tú eres mi Sol</h1>
 
         <section class="sistema-solar" role="application" aria-label="Sistema Solar">
             <div class="centro" id="centro">
@@ -31,52 +31,52 @@
 
             <div class="orbit orbit-mercurio" data-speed="4">
                 <div class="planet mercurio" data-nombre="Mercurio" 
-                     data-autor="Mario Benedetti"
-                     data-piropo="Tus ojos son dos soles que me guían en la oscuridad."></div>
+                    data-autor="Mario Benedetti"
+                    data-piropo="No te prometo eternidades, pero sí mi mejor versión cada vez que sonríes."></div>
             </div>
 
             <div class="orbit orbit-venus" data-speed="7">
                 <div class="planet venus" data-nombre="Venus" 
-                     data-autor="André Aciman - Call Me by Your Name"
-                     data-piropo="Me bastaría tu nombre pronunciado por otro para reconocerte entre mil."></div>
+                    data-autor="André Aciman"
+                    data-piropo="Si había un instante perfecto, eras tú dentro de él."></div>
             </div>
 
             <div class="orbit orbit-tierra" data-speed="12">
                 <div class="planet tierra" data-nombre="Tierra" 
-                     data-autor="Federico García Lorca"
-                     data-piropo="Verde que te quiero verde. Verde viento, verdes ramas."></div>
+                    data-autor="Federico García Lorca"
+                    data-piropo="Tu luz tiene el color de las cosas que valen la pena."></div>
             </div>
 
             <div class="orbit orbit-marte" data-speed="18">
                 <div class="planet marte" data-nombre="Marte" 
-                     data-autor="Gabriel García Márquez"
-                     data-piropo="Era inevitable: el olor de las almendras amargas le recordaba siempre el destino de los amores contrariados."></div>
+                    data-autor="Gabriel García Márquez"
+                    data-piropo="Tienes la belleza tranquila de un milagro que ocurre sin avisar."></div>
             </div>
 
             <div class="orbit orbit-jupiter" data-speed="25">
                 <div class="planet jupiter" data-nombre="Júpiter" 
-                     data-autor="Octavio Paz"
-                     data-piropo="Amor es un eterno ir y venir entre dos orillas."></div>
+                    data-autor="Octavio Paz"
+                    data-piropo="Tu presencia es ese instante donde el mundo parece ordenarse."></div>
             </div>
 
             <div class="orbit orbit-saturno" data-speed="35">
                 <div class="planet saturno" data-nombre="Saturno" 
-                     data-autor="Mario Benedetti"
-                     data-piropo="Te quiero porque tus manos trabajan por la justicia."></div>
+                    data-autor="Mario Benedetti"
+                    data-piropo="Me gusta la gente que abraza con el alma, y tú lo haces sin tocarme."></div>
             </div>
 
             <div class="orbit orbit-urano" data-speed="45">
                 <div class="planet urano" data-nombre="Urano" 
-                     data-autor="Isabel Allende"
-                     data-piropo="Llevo tu nombre y tu recuerdo tatuado en el alma."></div>
+                    data-autor="Isabel Allende"
+                    data-piropo="Llevas magia en la voz y coraje en el corazón."></div>
             </div>
 
             <div class="orbit orbit-neptuno" data-speed="55">
                 <div class="planet neptuno" data-nombre="Neptuno" 
-                     data-autor="Charles Bukowski"
-                     data-piropo="Eres tan increíble que casi no te creo."></div>
+                    data-autor="Charles Bukowski"
+                    data-piropo="Eras demasiado hermosa para no mirarte dos veces."></div>
             </div>
-        </section>
+        </section> 
 
 
         <div id="tooltip" role="status" aria-live="polite" class="tooltip" hidden></div>
@@ -89,6 +89,19 @@
             </div>
         </div>
     </main>
+
+    
+<audio id="bgm" loop>
+  <source src="Futile Devices (Doveman Remix)  Call Me By Your Name (Original Motion Picture Soundtrack).m4a" type="audio/mp3">
+</audio>
+
+<script>
+document.addEventListener("click", () => {
+    const audio = document.getElementById("bgm");
+    audio.play();
+}, { once: true });
+</script>
+
 
     <script src="cielo.js"></script>
 </body>

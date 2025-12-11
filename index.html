@@ -50,9 +50,9 @@
       <h2 class="section-title">Momentos</h2>
       <div class="text-grid">
         <p class="floating-card">Cada vez que hablo contigo o estoy contigo, siento mariposas en el estómago.</p>
-        <p class="floating-card delay-1">Esa calma que me da hablar contigo.</p>
-        <p class="floating-card delay-2">Esa sonrisa que aparece sin avisar.</p>
-        <p class="floating-card delay-3">El silencio cómodo que existe entre nosotros.</p>
+        <p class="floating-card delay-1">A veces estamos tan enfocados en el futuro que se nos o0lvida que hoy estamos viviendo lo que alguna vez deseamos. Así que asegúra de dar lo mejor de ti hoy.</p>
+        <p class="floating-card delay-2">Lo perfecto de ti es que no me recuerdas a nadie. Todo sobre ti es nuevo, divertido y emocionante.</p>
+        <p class="floating-card delay-3">Cuidate mucho, por favor.Eres muy importante para mí, te quiero con todo mi ser y no quiero que te pase nada malo.</p>
       </div>
     </section>
 
@@ -101,7 +101,7 @@
         id="backToTop" 
         class="btn" 
         onclick="window.location.href='Cielo.html'">
-        Volver al cielo
+        Ir al Sistema Solar
       </button>
     </footer>
   </main>
@@ -112,6 +112,18 @@
       <p id="modalText" class="modal-text"></p>
     </div>
   </div>
+
+<audio id="bgm" loop>
+  <source src="Sufjan Stevens - Mystery of Love (From Call Me By Your Name Soundtrack).m4a" type="audio/mp3">
+</audio>
+
+<script>
+document.addEventListener("click", () => {
+    const audio = document.getElementById("bgm");
+    audio.play();
+}, { once: true });
+</script>
+
 
   <script src="script.js"></script>
 </body>
