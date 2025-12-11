@@ -30,5 +30,18 @@
 
     <canvas class="webgl"></canvas>
     <script type="module" src="moon.js"></script>
+
+    
+      <audio id="bgm" loop>
+        <source src="Moon - Made with Clipchamp.m4a" type="audio/mp3">
+      </audio>
+
+      <script>
+      document.addEventListener("click", () => {
+          const audio = document.getElementById("bgm");
+          audio.play();
+      }, { once: true });
+      </script> 
+      
 </body>
 </html>
